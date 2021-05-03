@@ -8,12 +8,12 @@ function App() {
   const [text, setText] = useState<string>('');
 
   const submit = () => {
+    setResult("loading ...")
     request.post('https://nlp-api-bcrjpew6hq-as.a.run.app/predict').send({
       'text': text,
     }).then(res => {
       setResult(res.body.split(" ").join(""));
     })
-    setResult("dummy")
   }
 
   return (
